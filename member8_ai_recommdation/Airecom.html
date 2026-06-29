@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Healthcare Claims AI Assistant</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#e0f2fe,#dbeafe,#eef2ff);
+padding:20px;
+}
+
+.container{
+max-width:1000px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:25px;
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+
+.header{
+background:#2563eb;
+color:white;
+padding:25px;
+border-radius:20px;
+margin-bottom:25px;
+}
+
+.header h1{
+font-size:32px;
+}
+
+.header p{
+margin-top:10px;
+font-size:16px;
+}
+
+.ai-title{
+font-size:32px;
+font-weight:bold;
+color:#2563eb;
+margin-bottom:10px;
+}
+
+.ai-subtitle{
+font-size:18px;
+color:#666;
+margin-bottom:25px;
+}
+
+.status{
+background:#fee2e2;
+color:#dc2626;
+padding:12px 20px;
+border-radius:25px;
+display:inline-block;
+font-weight:600;
+margin-bottom:25px;
+}
+
+.quick-buttons{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+margin-bottom:25px;
+}
+
+.quick-buttons button{
+border:none;
+background:#eff6ff;
+padding:14px 20px;
+border-radius:30px;
+font-size:15px;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+color:#2563eb;
+}
+
+.quick-buttons button:hover{
+background:#2563eb;
+color:white;
+transform:translateY(-3px);
+}
+
+.chat-container{
+background:#f8fafc;
+padding:20px;
+border-radius:20px;
+height:500px;
+overflow-y:auto;
+margin-bottom:20px;
+}
+
+.bot-message{
+display:flex;
+margin-bottom:20px;
+}
+
+.bot-icon{
+width:55px;
+height:55px;
+background:#dbeafe;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:28px;
+margin-right:15px;
+}
+
+.message{
+background:white;
+padding:20px;
+border-radius:20px;
+max-width:80%;
+box-shadow:0 4px 10px rgba(0,0,0,0.08);
+line-height:1.8;
+font-size:16px;
+}
+
+.user-message{
+text-align:right;
+margin:15px 0;
+}
+
+.user-message span{
+background:#2563eb;
+color:white;
+padding:12px 18px;
+border-radius:20px;
+display:inline-block;
+}
+
+.input-area{
+display:flex;
+gap:10px;
+}
+
+.input-area input{
+flex:1;
+padding:18px;
+border-radius:35px;
+border:2px solid #ddd;
+font-size:16px;
+outline:none;
+}
+
+.input-area button{
+width:70px;
+border:none;
+border-radius:50%;
+background:#2563eb;
+color:white;
+font-size:24px;
+cursor:pointer;
+}
+
+.footer{
+text-align:center;
+margin-top:20px;
+color:#666;
+}
+
+.bottom-nav {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .bottom-nav a {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .bottom-nav a:hover {
+            background: #1d4ed8;
+            transform: scale(1.05);
+        }
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+<h1>🏥 Real-Time Healthcare Claims Analytics Portal</h1>
+<p>AI Powered Claims Insights & Recommendations</p>
+</div>
+
+<h2 class="ai-title">🤖 Healthcare Claims AI Assistant</h2>
+
+<p class="ai-subtitle">
+Ask anything about healthcare claims analytics
+</p>
+
+<div class="status">
+🔴 AI Recommendation Engine Active
+</div>
+
+<div class="quick-buttons">
+
+<button onclick="quickAsk('Claims Insights')">
+📊 Claims Insights
+</button>
+
+<button onclick="quickAsk('Fraud Detection')">
+⚠️ Fraud Detection
+</button>
+
+<button onclick="quickAsk('Cost Savings')">
+💰 Cost Savings
+</button>
+
+<button onclick="quickAsk('Rejected Claims')">
+❌ Rejected Claims
+</button>
+
+<button onclick="quickAsk('Provider Analysis')">
+🏥 Provider Analysis
+</button>
+
+<button onclick="quickAsk('Monthly Trends')">
+📈 Monthly Trends
+</button>
+
+</div>
+
+<div class="chat-container" id="chatBox">
+
+<div class="bot-message">
+<div class="bot-icon">🤖</div>
+
+<div class="message">
+
+👋 Hello! I'm your Healthcare Claims AI Assistant.
+
+<br><br>
+
+I can help you with:
+
+<ul>
+<li>📊 Claims Analytics Insights</li>
+<li>✅ Approved Claims Analysis</li>
+<li>❌ Rejected Claims Recommendations</li>
+<li>⚠️ Fraud Detection Alerts</li>
+<li>💰 Cost Optimization Suggestions</li>
+<li>📈 Monthly Claim Trends</li>
+<li>🏥 Provider Performance Analysis</li>
+<li>🤖 AI-Based Recommendations</li>
+</ul>
+
+<br>
+
+Ask me anything! 😊
+
+</div>
+</div>
+
+</div>
+
+<div class="input-area">
+
+<input
+type="text"
+id="userInput"
+placeholder="Ask about healthcare claims..."
+>
+
+<button onclick="sendMessage()">➤</button>
+
+</div>
+
+<div class="bottom-nav">
+   <a href="../member1_user_registration\admin.html">
+        Go TO Home ->
+    </a>
+</div>
+
+
+<div class="footer">
+© 2026 Healthcare Claims Analytics Portal | AI Insights
+</div>
+
+</div>
+
+<script>
+
+function quickAsk(text){
+document.getElementById("userInput").value=text;
+sendMessage();
+}
+
+function getAIResponse(question){
+
+question=question.toLowerCase();
+
+if(question.includes("claims")){
+return "📊 Total Claims: 12,450 | Approved: 10,850 | Rejected: 1,600. Claim processing performance is excellent.";
+}
+
+if(question.includes("approved")){
+return "✅ Approval Rate: 87%. Average approval time is 2.8 days.";
+}
+
+if(question.includes("rejected")){
+return "❌ Rejection Rate: 13%. Major reasons include Missing Documents, Invalid Codes and Eligibility Issues.";
+}
+
+if(question.includes("fraud")){
+return "⚠️ AI Alert: 12 suspicious claims detected. Duplicate billing patterns found in provider submissions.";
+}
+
+if(question.includes("cost")){
+return "💰 Estimated Savings: ₹4.5 Lakhs. Recommendation: Reduce duplicate claims and automate verification.";
+}
+
+if(question.includes("provider")){
+return "🏥 Top Provider: Apollo Hospital. Approval Rate: 94%. Average settlement time: 2 days.";
+}
+
+if(question.includes("trend")){
+return "📈 Monthly Trend: Claims increased by 18% compared to last month. Approval rate improved by 5%.";
+}
+
+return "🤖 AI Recommendation: Healthcare claim performance is stable. Focus on reducing rejection rates and monitoring fraud risks.";
+}
+
+function sendMessage(){
+
+let input=document.getElementById("userInput");
+
+let text=input.value.trim();
+
+if(text==="") return;
+
+let chat=document.getElementById("chatBox");
+
+chat.innerHTML+=`
+<div class="user-message">
+<span>${text}</span>
+</div>
+`;
+
+let response=getAIResponse(text);
+
+chat.innerHTML+=`
+<div class="bot-message">
+<div class="bot-icon">🤖</div>
+<div class="message">${response}</div>
+</div>
+`;
+
+input.value="";
+
+chat.scrollTop=chat.scrollHeight;
+
+}
+
+document.getElementById("userInput")
+.addEventListener("keypress",function(e){
+
+if(e.key==="Enter"){
+sendMessage();
+}
+
+});
+
+
+
+</script>
+
+</body>
+</html>

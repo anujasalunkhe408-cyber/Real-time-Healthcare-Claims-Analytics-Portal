@@ -1,0 +1,194 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#e0f2fe,#dbeafe,#eef2ff);
+padding:20px;
+}
+
+/* CONTAINER */
+.container{
+max-width:1000px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:25px;
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* HEADER */
+.header{
+background:#2563eb;
+color:white;
+padding:25px;
+border-radius:20px;
+margin-bottom:25px;
+}
+
+.header h1{
+font-size:32px;
+}
+
+.header p{
+margin-top:10px;
+font-size:16px;
+}
+
+/* TITLES */
+.ai-title{
+font-size:32px;
+font-weight:bold;
+color:#2563eb;
+margin-bottom:10px;
+}
+
+.ai-subtitle{
+font-size:18px;
+color:#666;
+margin-bottom:25px;
+}
+
+/* STATUS */
+.status{
+background:#fee2e2;
+color:#dc2626;
+padding:12px 20px;
+border-radius:25px;
+display:inline-block;
+font-weight:600;
+margin-bottom:25px;
+}
+
+/* QUICK BUTTONS */
+.quick-buttons{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+margin-bottom:25px;
+}
+
+.quick-buttons button{
+border:none;
+background:#eff6ff;
+padding:14px 20px;
+border-radius:30px;
+font-size:15px;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+color:#2563eb;
+}
+
+.quick-buttons button:hover{
+background:#2563eb;
+color:white;
+transform:translateY(-3px);
+}
+
+/* CHAT */
+.chat-container{
+background:#f8fafc;
+padding:20px;
+border-radius:20px;
+height:500px;
+overflow-y:auto;
+margin-bottom:20px;
+}
+
+.bot-message{
+display:flex;
+margin-bottom:20px;
+}
+
+.bot-icon{
+width:55px;
+height:55px;
+background:#dbeafe;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:28px;
+margin-right:15px;
+}
+
+.message{
+background:white;
+padding:20px;
+border-radius:20px;
+max-width:80%;
+box-shadow:0 4px 10px rgba(0,0,0,0.08);
+line-height:1.8;
+font-size:16px;
+}
+
+.user-message{
+text-align:right;
+margin:15px 0;
+}
+
+.user-message span{
+background:#2563eb;
+color:white;
+padding:12px 18px;
+border-radius:20px;
+display:inline-block;
+}
+
+/* INPUT */
+.input-area{
+display:flex;
+gap:10px;
+}
+
+.input-area input{
+flex:1;
+padding:18px;
+border-radius:35px;
+border:2px solid #ddd;
+font-size:16px;
+outline:none;
+}
+
+.input-area button{
+width:70px;
+border:none;
+border-radius:50%;
+background:#2563eb;
+color:white;
+font-size:24px;
+cursor:pointer;
+}
+
+/* FOOTER */
+.footer{
+text-align:center;
+margin-top:20px;
+color:#666;
+}
+
+/* BOTTOM NAV */
+.bottom-nav{
+margin-top:20px;
+text-align:center;
+}
+
+.bottom-nav a{
+display:inline-block;
+background:#2563eb;
+color:white;
+padding:12px 20px;
+border-radius:10px;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
+}
+
+.bottom-nav a:hover{
+background:#1d4ed8;
+transform:scale(1.05);
+}
